@@ -1,0 +1,54 @@
+img {
+    width: max-width;
+    height: 100%;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+#order-btn {
+    margin-right: 50px;
+}
+
+header {
+    -webkit-box-shadow: 0px 10px 17px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 17px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 17px -10px rgba(0, 0, 0, 0.75);
+    margin-bottom: 10px;
+    height: 120px !important;
+    position: sticky;
+}
+
+#hero-advert {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-areas: 
+        "piz-one piz-one piz-three piz-three"
+        "piz-one piz-one piz-two piz-two"
+        "piz-one piz-one piz-two piz-two"
+        "piz-four piz-four piz-two piz-two";
+}
+
+#image1 {
+    grid-area: piz-one;
+    background: url("../images/pizza7.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+#image2 {
+    grid-area: piz-two;
+    background: url("../images/pizza6.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+#image3 {
+    grid-area: piz-three;
+}
+
+#image4 {
+    grid-area: piz-four;
+}
