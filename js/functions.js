@@ -59,9 +59,3 @@ function customersOrder(whichType, whichSize, whichTopping, whichCrust) {
 
     return totalAmount;
 }
-
-
-
-
-
-
