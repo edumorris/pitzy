@@ -1,6 +1,6 @@
 let numberOfPizzas = 1 //Default pizza to order
 
-//Pro
+//Constructors
 function pizza(pizzaName, pizzaAmount) {
     this.name = pizzaName;
     this.amount = pizzaAmount;
@@ -58,4 +58,35 @@ function customersOrder(whichType, whichSize, whichTopping, whichCrust) {
     totalAmount = ((whichType.amount + whichSize.sAmount + whichTopping.tAmount + whichCrust.cAmount) * numberOfPizzas);
 
     return totalAmount;
+}
+
+/*---------------User Logic---------------*/
+function getPizza(){
+  var whichPizza = document.getElementById('pizza').value;
+  console.log(whichPizza);
+  return whichPizza;
+}
+
+function getPizzaSize() {
+  var whatSize = document.getElementById('pizza-size').value;
+  console.log(whatSize);
+  return whatSize;
+}
+
+function getPizzaTopping() {
+  var whatTopping = document.getElementById('pizza-topping').value;
+  console.log(whatTopping);
+  return whatTopping;
+}
+
+function getPizzaCrust() {
+  var whichCrust = document.getElementById('pizza-crust').value;
+  console.log(whichCrust);
+  return whichCrust;
+}
+
+function getDelivery() {
+  var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
+  console.log(deliveryValue);
+  return deliveryValue;
 }

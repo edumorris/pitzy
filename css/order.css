@@ -1,0 +1,7 @@
+#delivery-type label {
+  color: black;
+}
+
+input[type="radio"]:checked {
+  transform: scale(1.5);
+}
