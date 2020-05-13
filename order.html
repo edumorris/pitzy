@@ -30,62 +30,231 @@
     <div class="container">
         <div id="order">
             <div id="order-section">
-                <form>
-                    <label for="pizza">Pizza:</label>
-                    <select id="pizza" required onchange="getPizza()">
-                        <option value="" disabled default selected="true">Select Pizza</option>
-                        <option value="meatzza">Meatzza</option>
-                        <option value="hawaiian">Hawaiian</option>
-                        <option value="regina">Regina</option>
-                        <option value="bbqSteak">BBQ Steak</option>
-                        <option value="bbqChicken">BBQ Chicken</option>
-                        <option value="vegTikka">Veg Tikka</option>
-                        <option value="boerewors">Boerewors</option>
-                        <option value="periChicken">Peri-Peri Chicken</option>
-                    </select>
-                    <br>
-                    <label for="pizza-size">Size:</label>
-                    <select id="pizza-size" required onchange="getPizzaSize()">
-                        <option value="" disabled default selected="true">Size of Pizza</option>
-                        <option value="small">Small</option>
-                        <option value="medium"></option>
-                        <option value="large"></option>
-                    </select>
-                    <br>
-                    <label for="pizza-topping">Topping:</label>
-                    <select id="pizza-topping" required onchange="getPizzaTopping()">
-                        <option value="" disabled default selected="true">Select Topping</option>
-                        <option value="pepperoni">Pepperoni</option>
-                        <option value="mushroom">Mushrooms</option>
-                        <option value="sausages">Sausages</option>
-                        <option value="onions">Onions</option>
-                        <option value="bacon">Bacon</option>
-                        <option value="extraCheese">Extra Cheese</option>
-                        <option value="pepper">Pepper</option>
-                        <option value="blackOlives">Black Olives</option>
-                    </select>
-                    <br>
-                    <label for="pizza-crust">Crust:</label>
-                    <select id="pizza-crust" required onchange="getPizzaCrust()">
-                        <option value="" disabled default selected="true">Select Crust</option>
-                        <option value="crispy">Crispy</option>
-                        <option value="stuffed">Stuffed</option>
-                        <option value="gluttenFree">Glutten Free</option>
-                        <option value="flatBread">Flat Bread</option>
-                        <option value="veganFriendly">Vegan Friendly</option>
-                        <option value="doubleDough">Double Dough</option>
-                    </select>
-                    <br>
-                    <label for="delivery-type">Delivery or Pickup:</label>
-                    <fieldset id="delivery-type" onchange="getDelivery()">
-                        <label for="delivery"><input type="radio" id="delivery" value="delivery" name="delivery-type">Deliver</label>
-                        <label for="pickup"><input type="radio" id="pickup" value="pickup" name="delivery-type">Pickup</label>
-                    </fieldset>
+                <form id="order-form">
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                <h2>Place Your Order</h2>
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td class="info_labels">
+                                <label for="pizza">Pizza:</label>
+                            </td>
+                            <td>
+                                <select id="pizza" required onchange="getPizza()">
+                                    <option value="" disabled default selected="true">Select Pizza</option>
+                                    <option value="meatzza">Meatzza</option>
+                                    <option value="hawaiian">Hawaiian</option>
+                                    <option value="regina">Regina</option>
+                                    <option value="bbqSteak">BBQ Steak</option>
+                                    <option value="bbqChicken">BBQ Chicken</option>
+                                    <option value="vegTikka">Veg Tikka</option>
+                                    <option value="boerewors">Boerewors</option>
+                                    <option value="periChicken">Peri-Peri Chicken</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info_labels">
+                                <label for="pizza-size">Size:</label>
+                            </td>
+                            <td>
+                                <select id="pizza-size" required onchange="getPizzaSize()">
+                                    <option value="" disabled default selected="true">Size of Pizza</option>
+                                    <option value="small">Small</option>
+                                    <option value="medium"></option>
+                                    <option value="large"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info_labels">
+                                <label for="pizza-topping">Topping:</label>
+                            </td>
+                            <td>
+                                <select id="pizza-topping" required onchange="getPizzaTopping()">
+                                    <option value="" disabled default selected="true">Select Topping</option>
+                                    <option value="pepperoni">Pepperoni</option>
+                                    <option value="mushroom">Mushrooms</option>
+                                    <option value="sausages">Sausages</option>
+                                    <option value="onions">Onions</option>
+                                    <option value="bacon">Bacon</option>
+                                    <option value="extraCheese">Extra Cheese</option>
+                                    <option value="pepper">Pepper</option>
+                                    <option value="blackOlives">Black Olives</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info_labels">
+                                <label for="pizza-crust">Crust:</label>
+                            </td>
+                            <td>
+                                <select id="pizza-crust" required onchange="getPizzaCrust()">
+                                    <option value="" disabled default selected="true">Select Crust</option>
+                                    <option value="crispy">Crispy</option>
+                                    <option value="stuffed">Stuffed</option>
+                                    <option value="gluttenFree">Glutten Free</option>
+                                    <option value="flatBread">Flat Bread</option>
+                                    <option value="veganFriendly">Vegan Friendly</option>
+                                    <option value="doubleDough">Double Dough</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="info_labels">
+                                <label for="delivery-type">Delivery or Pickup:</label>
+                            </td>
+                            <td>
+                                <fieldset id="delivery-type" onchange="getDelivery()">
+                                    <label for="delivery"><input type="radio" id="delivery" value="delivery"
+                                            name="delivery-type">Deliver</label>
+                                    <label for="pickup"><input type="radio" id="pickup" value="pickup"
+                                            name="delivery-type">Pickup</label>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" class="btn-success" name="Submit">
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+                <!--Delivery Form-->
+                <form id="delivery-form">
+                    <table>
+                        <tr>
+                            <th><label for="deli-name">Name:</label></th>
+                            <td>
+                                <input type="text" name="deli-name" id="deli-name" placeholder="Delivering to..."
+                                    required onchange="getDeliveryName()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="deli-number">Phone Number:</label></th>
+                            <td>
+                                <input type="number" name="deli-number" id="deli-number" placeholder="Phone Number"
+                                    required onchange="getDeliveryDetails()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="deli-alt">Alternate Phone Number:</label></th>
+                            <td>
+                                <input type="number" name="deli-alt">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="deli-email">Email:</label></th>
+                            <td>
+                                <input type="email" name="deli-email" id="deli-email" placeholder="youremail@email.com">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="deli-apartment">Apartment Name:</label>
+                            </th>
+                            <td>
+                                <input type="text" name="deli-apartment" id="deli-apartment"
+                                    placeholder="Apartment Name" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="deli-house-number">House Number:</label>
+                            </th>
+                            <td>
+                                <input type="text" name="deli-house-number" id="deli-house-number"
+                                    placeholder="#House Number">
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
             <div id="order-summary">
-                
+
+                <table>
+                    <tr>
+                        <th colspan="2">
+                            <h2>Your Order</h2>
+                        </th>
+                        <th>&nbsp;</th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Pizza:
+                        </th>
+                        <td>
+                            <span id="display-pizza"></span>
+                        </td>
+                        <td>
+                            <span id="pizza_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Size:
+                        </th>
+                        <td>
+                            <span id="display-pizza-size">
+                        </td>
+                        <td>
+                            <span id="pSize_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Topping:
+                        </th>
+                        <td>
+                            <span id="display-topping"></span>
+                        </td>
+                        <td>
+                            <span id="pTopping_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Crust:
+                        </th>
+                        <td>
+                            <span id="display-crust"></span>
+                        </td>
+                        <td>
+                            <span id="pCrust_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Pickup or Delivery
+                        </th>
+                        <td>
+                            <span id="delivery-details"></span>
+                        </td>
+                        <td>
+                            <span id="delivery_cost"></span>
+                        </td>
+                    </tr>
+                </table>
+                <div id="delivery-dets">
+                    <h3>Delivery Details</h3>
+                    <div><span class="static-delivery-det">Deliver To:</span><span id="delivery-name"></span></div>
+                    <div><span class="static-delivery-det">Phone Number:</span><span id="delivery-phoneNumber"></span>
+                    </div>
+                    <div><span class="static-delivery-det">Alternate Phone Number:</span
+                            id="delivery-altPhoneNumber"><span></span></div>
+                    <div><span class="static-delivery-det">Aprtment Name:</span><span id="delivery-apartment"></span>
+                    </div>
+                    <div><span class="static-delivery-det">House Number:</span><span id="delivery-houseNumber"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
+</html>

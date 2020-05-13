@@ -1,5 +1,52 @@
+img {
+	width: max-width;
+	height: 100%;
+}
+
+#order {
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 30px;
+	background: url(../images/logo/pitzy-logo.png) no-repeat;
+	background-size: contain;
+	background-origin: center left;
+	background-position: center;
+}
+
+#order-section {
+	width: 40%;
+	height: auto;
+	border-radius: 25px;
+	padding: 30px;
+}
+
+#order-section #order-form {
+	width: auto;
+	margin: 20px auto;
+	border: 1px dashed black;
+	padding: 20px;
+	border-radius: 25px;
+	background-color: #ffffff90;
+}
+
+#order-section #delivery-form {
+	display: none;
+}
+
+#order-summary {
+	padding: 30px;
+}
+
 #delivery-type label {
   color: black;
+}
+
+input[type="radio"] {
+	margin: 7px;
 }
 
 input[type="radio"]:checked {

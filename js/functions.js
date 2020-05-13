@@ -2,23 +2,23 @@ let numberOfPizzas = 1 //Default pizza to order
 
 //Constructors
 function pizza(pizzaName, pizzaAmount) {
-    this.name = pizzaName;
-    this.amount = pizzaAmount;
+  this.name = pizzaName;
+  this.amount = pizzaAmount;
 }
 
 function pizzaSize(pSize, sizeAmount) {
-    this.size = pSize;
-    this.sAmount = sizeAmount;
+  this.size = pSize;
+  this.sAmount = sizeAmount;
 }
 
 function pizzaTopping(pTopping, toppingAmount) {
-    this.topping = pTopping;
-    this.tAmount = toppingAmount;
+  this.topping = pTopping;
+  this.tAmount = toppingAmount;
 }
 
 function pizzaCrust(pCrust, crustAmount) {
-    this.crust = pCrust;
-    this.cAmount = crustAmount;
+  this.crust = pCrust;
+  this.cAmount = crustAmount;
 }
 
 //Pizza menu
@@ -54,39 +54,77 @@ var flatBread = new pizzaCrust("Flat Bread", 0);
 var veganFriendly = new pizzaCrust("Vegan Friendly", 0);
 var doubleDough = new pizzaCrust("Double Dough", 2);
 
+//Function to calculate the total amount for the order
 function customersOrder(whichType, whichSize, whichTopping, whichCrust) {
-    totalAmount = ((whichType.amount + whichSize.sAmount + whichTopping.tAmount + whichCrust.cAmount) * numberOfPizzas);
+  totalAmount = ((whichType.amount + whichSize.sAmount + whichTopping.tAmount + whichCrust.cAmount) * numberOfPizzas);
 
-    return totalAmount;
+  return totalAmount;
 }
 
+pizza.prototype.cost = function (whichPizza) {
+  return costAmount = whichPizza.amount;
+};
+
 /*---------------User Logic---------------*/
-function getPizza(){
-  var whichPizza = document.getElementById('pizza').value;
+function getPizza() {
+  let whichPizza = document.getElementById('pizza').value;
   console.log(whichPizza);
+  let pizzaCost = whichPizza[amount];
+  document.getElementById('display-pizza').innerHTML = whichPizza;
+  document.getElementById('pizza_cost').innerHTML = "$" + pizzaCost;
   return whichPizza;
 }
 
 function getPizzaSize() {
   var whatSize = document.getElementById('pizza-size').value;
+  let sizeCost = whatSize[sAmount];
+  document.getElementById('display-pizza-size').innerHTML = whatSize;
+  document.getElementById('pSize_cost').innerHTML = "$" + sizeCost;
   console.log(whatSize);
   return whatSize;
 }
 
 function getPizzaTopping() {
   var whatTopping = document.getElementById('pizza-topping').value;
+  document.getElementById('display-topping').innerHTML = whatTopping;
   console.log(whatTopping);
   return whatTopping;
 }
 
 function getPizzaCrust() {
   var whichCrust = document.getElementById('pizza-crust').value;
+  document.getElementById('display-crust').innerHTML = whichCrust;
   console.log(whichCrust);
   return whichCrust;
 }
 
 function getDelivery() {
   var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
+  document.getElementById('delivery-details').innerHTML = deliveryValue;
   console.log(deliveryValue);
+
+  if (deliveryValue == 'delivery') {
+    $('#delivery-form').show('slow');
+  } else {
+    $('#delivery-form').hide('slow');
+  }
+
+  /*
+  if (deliveryValue == "delivery") {
+    document.getElementById('delivery-form').style.display = "block";
+  } else {
+    document.getElementById('delivery-form').style.display = "none";
+  }
+  */
+
   return deliveryValue;
+}
+
+function getDeliveryName() {
+  let nameToDeliver = document.getElementById('deli-name').value;
+  document.getElementById('delivery-name').innerHTML = nameToDeliver;
+}
+
+function get(params) {
+  
 }
