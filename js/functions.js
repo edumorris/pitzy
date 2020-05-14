@@ -104,14 +104,14 @@ function getPizzaCrust() {
 
 function getDelivery() {
   var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
-  let deliveryCost = eval(deliveryValue).
+  let deliveryCost;
   document.getElementById('delivery-details').innerHTML = deliveryValue;
   
   console.log(deliveryValue);
 
   if (deliveryValue == 'delivery') {
     $('#delivery-form').show('slow');
-    $('#delivery-dets').show('slow')
+    $('#delivery-dets').show('slow');
   } else {
     $('#delivery-form').hide('slow');
     $('#delivery-dets').hide('slow');

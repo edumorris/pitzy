@@ -27,13 +27,29 @@
 </head>
 
 <body>
-    <div class="container">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-blue text-center">
+            <a class="navbar-brand" href="#"><img class="logo" src="images/logo/pitzy-logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button id="order-btn" class="btn btn-success my-2 my-sm-0" onclick="openOrder()">Order</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
         <div id="order">
             <div id="order-section">
                 <form id="order-form">
                     <table>
                         <tr>
-                            <th colspan="2">
+                            <th colspan="2" style="text-align: center;">
                                 <h2>Place Your Order</h2>
                             </th>
                             <th></th>
@@ -64,8 +80,8 @@
                                 <select id="pizza-size" required onchange="getPizzaSize()">
                                     <option value="" disabled default selected="true">Size of Pizza</option>
                                     <option value="small">Small</option>
-                                    <option value="medium"></option>
-                                    <option value="large"></option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
                                 </select>
                             </td>
                         </tr>
@@ -117,8 +133,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
-                                <input type="submit" class="btn-success" name="Submit">
+                            <td colspan="2" style="text-align: center; margin-top: 20px;">
+                                <input type="submit" class="btn-success" name="Submit" value="Submit">
                             </td>
                             <td></td>
                         </tr>
@@ -128,118 +144,132 @@
                 <form id="delivery-form">
                     <table>
                         <tr>
-                            <th><label for="deli-name">Name:</label></th>
+                            <th colspan="2" style="text-align: center;">
+                                <h2>Delivery Details</h2>
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th class="deli-labels"><label for="deli-name">Name:</label></th>
                             <td>
-                                <input type="text" name="deli-name" id="deli-name" placeholder="Delivering to..."
+                                <input type="text" class="deli-details" name="deli-name" id="deli-name" placeholder="Delivering to..."
                                     required onchange="getDeliveryName()">
                             </td>
                         </tr>
                         <tr>
-                            <th><label for="deli-number">Phone Number:</label></th>
+                            <th class="deli-labels"><label for="deli-number">Phone Number:</label></th>
                             <td>
-                                <input type="number" name="deli-number" id="deli-number" placeholder="Phone Number"
+                                <input type="number" class="deli-details" name="deli-number" id="deli-number" placeholder="Phone Number"
                                     required onchange="getDeliveryDetails()">
                             </td>
                         </tr>
                         <tr>
-                            <th><label for="deli-alt">Alternate Phone Number:</label></th>
+                            <th class="deli-labels"><label for="deli-alt">Alt-Phone Number:</label></th>
                             <td>
-                                <input type="number" name="deli-alt">
+                                <input type="number" class="deli-details" name="deli-alt">
                             </td>
                         </tr>
                         <tr>
-                            <th><label for="deli-email">Email:</label></th>
+                            <th class="deli-labels"><label for="deli-email">Email:</label></th>
                             <td>
-                                <input type="email" name="deli-email" id="deli-email" placeholder="youremail@email.com">
+                                <input type="email" class="deli-details" name="deli-email" id="deli-email" placeholder="youremail@email.com">
                             </td>
                         </tr>
                         <tr>
-                            <th>
+                            <th class="deli-labels">
                                 <label for="deli-apartment">Apartment Name:</label>
                             </th>
                             <td>
-                                <input type="text" name="deli-apartment" id="deli-apartment"
+                                <input type="text" class="deli-details" name="deli-apartment" id="deli-apartment"
                                     placeholder="Apartment Name" required>
                             </td>
                         </tr>
                         <tr>
-                            <th>
+                            <th class="deli-labels">
                                 <label for="deli-house-number">House Number:</label>
                             </th>
                             <td>
-                                <input type="text" name="deli-house-number" id="deli-house-number"
+                                <input type="text" class="deli-details" name="deli-house-number" id="deli-house-number"
                                     placeholder="#House Number">
                             </td>
                         </tr>
                     </table>
                 </form>
             </div>
-            <div id="order-summary">
 
+            <div id="order-summary">
                 <table>
                     <tr>
                         <th colspan="2">
                             <h2>Your Order</h2>
                         </th>
-                        <th>&nbsp;</th>
                         <th>Cost</th>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="orderSum-left">
                             Pizza:
                         </th>
-                        <td>
+                        <td class="orderSum-center">
                             <span id="display-pizza"></span>
                         </td>
-                        <td>
+                        <td class="orderSum-right">
                             <span id="pizza_cost"></span>
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="orderSum-left">
                             Size:
                         </th>
-                        <td>
+                        <td class="orderSum-center">
                             <span id="display-pizza-size">
                         </td>
-                        <td>
+                        <td class="orderSum-right">
                             <span id="pSize_cost"></span>
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="orderSum-left">
                             Topping:
                         </th>
-                        <td>
+                        <td class="orderSum-center">
                             <span id="display-topping"></span>
                         </td>
-                        <td>
+                        <td class="orderSum-right">
                             <span id="pTopping_cost"></span>
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="orderSum-left">
                             Crust:
                         </th>
-                        <td>
+                        <td class="orderSum-center">
                             <span id="display-crust"></span>
                         </td>
-                        <td>
+                        <td class="orderSum-right">
                             <span id="pCrust_cost"></span>
                         </td>
                     </tr>
                     <tr>
-                        <th>
-                            Pickup or Delivery
+                        <th class="orderSum-left">
+                            Pickup or Delivery?
                         </th>
-                        <td>
+                        <td class="orderSum-center">
                             <span id="delivery-details"></span>
                         </td>
-                        <td>
+                        <td class="orderSum-right">
                             <span id="delivery_cost"></span>
                         </td>
                     </tr>
+                    <tr>
+                        <th colspan="2" id="cost-total">
+                            TOTAL:
+                        </th>
+                        <td>
+                            <span id="total_cost"></span>
+                        </td>
+                    </tr>
                 </table>
+                <hr>
                 <div id="delivery-dets">
                     <h3>Delivery Details</h3>
                     <div><span class="static-delivery-det">Deliver To:</span><span id="delivery-name"></span></div>
