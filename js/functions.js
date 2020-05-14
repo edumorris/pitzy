@@ -54,57 +54,74 @@ var flatBread = new pizzaCrust("Flat Bread", 0);
 var veganFriendly = new pizzaCrust("Vegan Friendly", 0);
 var doubleDough = new pizzaCrust("Double Dough", 2);
 
+var totalAmount = 0;
+
 //Function to calculate the total amount for the order
-function customersOrder(whichType, whichSize, whichTopping, whichCrust) {
-  totalAmount = ((whichType.amount + whichSize.sAmount + whichTopping.tAmount + whichCrust.cAmount) * numberOfPizzas);
+function customersTotalCost() {
+  let pizzaType = getPizza();
+  let sizeP = getPizzaSize();
+  let toppingP = getPizzaTopping();
+  let crustP = getPizzaCrust();
+  let deliveryP = getDelivery();
+
+  let totalAmount = pizzaType[1] + sizeP[1] + toppingP[1] + crustP[1] + deliveryP[1];
+
+  
 
   return totalAmount;
 }
-
-pizza.prototype.cost = function (whichPizza) {
-  return costAmount = whichPizza.amount;
-};
 
 /*---------------User Logic---------------*/
 function getPizza() {
   let whichPizza = document.getElementById('pizza').value;
   console.log(whichPizza);
+  let pizzaType = eval(whichPizza).name;
   let pizzaCost = eval(whichPizza).amount;
-  document.getElementById('display-pizza').innerHTML = whichPizza;
+  document.getElementById('display-pizza').innerHTML = pizzaType;
   document.getElementById('pizza_cost').innerHTML = "$" + pizzaCost;
-  return whichPizza;
+
+  totalAmount += pizzaCost;
+  document.getElementById('total_cost').innerHTML = totalAmount;
+  let thePizza = [whichPizza, pizzaCost];
+  return thePizza;
 }
 
 function getPizzaSize() {
   var whatSize = document.getElementById('pizza-size').value;
   let sizeCost = eval(whatSize).sAmount;
-  document.getElementById('display-pizza-size').innerHTML = whatSize;
+  document.getElementById('display-pizza-size').innerHTML = eval(whatSize).size;
   document.getElementById('pSize_cost').innerHTML = "$" + sizeCost;
   console.log(whatSize);
-  return whatSize;
+
+  totalAmount += sizeCost;
+  document.getElementById('total_cost').innerHTML = totalAmount;
+  let theSize = [whatSize, sizeCost];
+  return theSize;
 }
 
 function getPizzaTopping() {
   var whatTopping = document.getElementById('pizza-topping').value;
   let toppingCost = eval(whatTopping).tAmount;
-  document.getElementById('display-topping').innerHTML = whatTopping;
+  document.getElementById('display-topping').innerHTML = eval(whatTopping).topping;
   document.getElementById('pTopping_cost').innerHTML = "$" + toppingCost;
   console.log(whatTopping);
-  return whatTopping;
+  let theTopping = [whatTopping, toppingCost];
+  return theTopping;
 }
 
 function getPizzaCrust() {
   var whichCrust = document.getElementById('pizza-crust').value;
   let crustCost = eval(whichCrust).cAmount;
-  document.getElementById('display-crust').innerHTML = whichCrust;
+  document.getElementById('display-crust').innerHTML = eval(whichCrust).crust;
   document.getElementById('pCrust_cost').innerHTML = "$" + crustCost;
   console.log(whichCrust);
+  let theCrust = [whichCrust, crustCost];
   return whichCrust;
 }
 
 function getDelivery() {
   var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
-  let deliveryCost;
+  let deliveryCost = 1;
   document.getElementById('delivery-details').innerHTML = deliveryValue;
   
   console.log(deliveryValue);
@@ -115,8 +132,10 @@ function getDelivery() {
   } else {
     $('#delivery-form').hide('slow');
     $('#delivery-dets').hide('slow');
+    deliveryCost = 0;
   }
 
+  document.getElementById('delivery_cost').innerHTML = "$" + deliveryCost;
   /*
   if (deliveryValue == "delivery") {
     document.getElementById('delivery-form').style.display = "block";
@@ -125,7 +144,9 @@ function getDelivery() {
   }
   */
 
-  return deliveryValue;
+  customersTotalCost();
+  let theDelivery = [deliveryValue, deliveryCost];
+  return theDelivery;
 }
 
 function getDeliveryName() {
@@ -133,6 +154,4 @@ function getDeliveryName() {
   document.getElementById('delivery-name').innerHTML = nameToDeliver;
 }
 
-function get(params) {
-  
-}
+customersTotalCost();

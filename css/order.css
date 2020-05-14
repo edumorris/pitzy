@@ -95,6 +95,7 @@ select {
 	width: 150px;
 	text-align: left;
 	padding-left: 20px;
+	font-size: bold;
 }
 
 .orderSum-right {
@@ -131,4 +132,5 @@ input[type="radio"]:checked {
 #delivery-dets {
 	display: none;
 	height: auto;
+	position: relative;
 }
