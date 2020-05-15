@@ -56,21 +56,6 @@ var doubleDough = new pizzaCrust("Double Dough", 2);
 
 var totalAmount = 0;
 
-//Function to calculate the total amount for the order
-function customersTotalCost() {
-  let pizzaType = getPizza();
-  let sizeP = getPizzaSize();
-  let toppingP = getPizzaTopping();
-  let crustP = getPizzaCrust();
-  let deliveryP = getDelivery();
-
-  let totalAmount = pizzaType[1] + sizeP[1] + toppingP[1] + crustP[1] + deliveryP[1];
-
-  
-
-  return totalAmount;
-}
-
 /*---------------User Logic---------------*/
 function getPizza() {
   let whichPizza = document.getElementById('pizza').value;
@@ -144,14 +129,63 @@ function getDelivery() {
   }
   */
 
-  customersTotalCost();
+
   let theDelivery = [deliveryValue, deliveryCost];
   return theDelivery;
 }
 
+customersTotalCost();
+
 function getDeliveryName() {
   let nameToDeliver = document.getElementById('deli-name').value;
   document.getElementById('delivery-name').innerHTML = nameToDeliver;
+  return nameToDeliver;
 }
 
-customersTotalCost();
+function getPhoneNumber() {
+  let phoneNumber = document.getElementById('deli-number').value;
+  document.getElementById('delivery-phoneNumber').innerHTML = phoneNumber;
+  return phoneNumber;
+}
+
+function getAltNumber() {
+  let altPhoneNumber = document.getElementById('deli-alt').value;
+  document.getElementById('delivery-altPhoneNumber').innerHTML = altPhoneNumber;
+  return altPhoneNumber;
+}
+
+function getEmail() {
+  let userEmail = document.getElementById('deli-email').value;
+  document.getElementById('delivery-email').innerHTML = userEmail;
+  return userEmail;
+}
+
+function getApartment() {
+  let apartment = document.getElementById('deli-apartment').value;
+  document.getElementById('delivery-apartment').innerHTML = apartment;
+  return apartment;
+}
+
+function getHouseNumber() {
+  let houseNumber = document.getElementById('deli-house-number').value;
+  document.getElementById('delivery-houseNumber').innerHTML = houseNumber;
+  return houseNumber;
+}
+
+
+/*---------------Business Logic---------------*/
+//Function to calculate the total amount for the order
+//Change to listening JQuery function
+function customersTotalCost() {
+  let pizzaType = getPizza();
+  let sizeP = getPizzaSize();
+  let toppingP = getPizzaTopping();
+  let crustP = getPizzaCrust();
+  let deliveryP = getDelivery();
+
+  let totalAmount = pizzaType[1] + sizeP[1] + toppingP[1] + crustP[1] + deliveryP[1];
+
+  
+
+  return totalAmount;
+}

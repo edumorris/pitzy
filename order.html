@@ -160,19 +160,20 @@
                             <th class="deli-labels"><label for="deli-number">Phone Number:</label></th>
                             <td>
                                 <input type="number" class="deli-details" name="deli-number" id="deli-number" placeholder="Phone Number"
-                                    required onchange="getDeliveryDetails()">
+                                    required onchange="getPhoneNumber()">
                             </td>
                         </tr>
                         <tr>
                             <th class="deli-labels"><label for="deli-alt">Alt-Phone Number:</label></th>
                             <td>
-                                <input type="number" class="deli-details" name="deli-alt">
+                                <input type="number" class="deli-details" name="deli-alt" id="deli-alt" placeholder="Alternate Phone Number" onchange="getAltNumber()">
                             </td>
                         </tr>
                         <tr>
                             <th class="deli-labels"><label for="deli-email">Email:</label></th>
                             <td>
-                                <input type="email" class="deli-details" name="deli-email" id="deli-email" placeholder="youremail@email.com">
+                                <input type="email" class="deli-details" name="deli-email" id="deli-email"
+                                    placeholder="youremail@email.com" onchange="getEmail()" required>
                             </td>
                         </tr>
                         <tr>
@@ -181,7 +182,7 @@
                             </th>
                             <td>
                                 <input type="text" class="deli-details" name="deli-apartment" id="deli-apartment"
-                                    placeholder="Apartment Name" required>
+                                    placeholder="Apartment Name" onchange="getApartment()" required>
                             </td>
                         </tr>
                         <tr>
@@ -190,7 +191,7 @@
                             </th>
                             <td>
                                 <input type="text" class="deli-details" name="deli-house-number" id="deli-house-number"
-                                    placeholder="#House Number">
+                                    placeholder="#House Number" onchange="getHouseNumber()">
                             </td>
                         </tr>
                     </table>
@@ -275,8 +276,8 @@
                     <div><span class="static-delivery-det">Deliver To:</span><span id="delivery-name"></span></div>
                     <div><span class="static-delivery-det">Phone Number:</span><span id="delivery-phoneNumber"></span>
                     </div>
-                    <div><span class="static-delivery-det">Alternate Phone Number:</span
-                            id="delivery-altPhoneNumber"><span></span></div>
+                    <div><span class="static-delivery-det">Alternate Phone Number:</span><span id="delivery-altPhoneNumber"></span></div>
+                    <div><span class="static-delivery-det">Email:</span><span id="delivery-email"></span></div>
                     <div><span class="static-delivery-det">Apartment Name:</span><span id="delivery-apartment"></span>
                     </div>
                     <div><span class="static-delivery-det">House Number:</span><span id="delivery-houseNumber"></span>
