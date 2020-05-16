@@ -172,6 +172,32 @@ function getHouseNumber() {
   return houseNumber;
 }
 
+//To increase or decrease number of pizzas
+var value;
+
+function incrementValue() {
+  value = parseInt(document.getElementById('pizza-number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('pizza-number').value = value;
+  document.getElementById('display-number-of-pizzas').innerHTML = value;
+  return false;
+}
+
+function decrementValue() {
+  while (value > 1) {
+    value = parseInt(document.getElementById('pizza-number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('pizza-number').value = value;
+    document.getElementById('display-number-of-pizzas').innerHTML = value;
+    return false;
+  }
+}
+
+
+
+
 
 /*---------------Business Logic---------------*/
 //Function to calculate the total amount for the order
