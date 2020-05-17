@@ -1,5 +1,3 @@
-let numberOfPizzas = 1 //Default pizza to order
-
 //Constructors
 function pizza(pizzaName, pizzaAmount) {
   this.name = pizzaName;
@@ -43,7 +41,7 @@ var sausages = new pizzaTopping("Sausages", 2);
 var onions = new pizzaTopping("Onions", 0.50);
 var bacon = new pizzaTopping("Bacon", 2.50);
 var extraCheese = new pizzaTopping("Extra Cheese", 1.50);
-var pepper = new pizzaTopping("Pepper", 0.5);
+var pepper = new pizzaTopping("Pepper", 0.50);
 var blackOlives = new pizzaTopping("Black Olives", 3);
 
 //Pizza Crusts
@@ -54,7 +52,6 @@ var flatBread = new pizzaCrust("Flat Bread", 0);
 var veganFriendly = new pizzaCrust("Vegan Friendly", 0);
 var doubleDough = new pizzaCrust("Double Dough", 2);
 
-var totalAmount = 0;
 
 /*---------------User Logic---------------*/
 function getPizza() {
@@ -64,11 +61,8 @@ function getPizza() {
   let pizzaCost = eval(whichPizza).amount;
   document.getElementById('display-pizza').innerHTML = pizzaType;
   document.getElementById('pizza_cost').innerHTML = "$" + pizzaCost;
-
-  totalAmount += pizzaCost;
-  document.getElementById('total_cost').innerHTML = totalAmount;
   let thePizza = [whichPizza, pizzaCost];
-  return thePizza;
+  return pizzaCost;
 }
 
 function getPizzaSize() {
@@ -76,12 +70,8 @@ function getPizzaSize() {
   let sizeCost = eval(whatSize).sAmount;
   document.getElementById('display-pizza-size').innerHTML = eval(whatSize).size;
   document.getElementById('pSize_cost').innerHTML = "$" + sizeCost;
-  console.log(whatSize);
-
-  totalAmount += sizeCost;
-  document.getElementById('total_cost').innerHTML = totalAmount;
   let theSize = [whatSize, sizeCost];
-  return theSize;
+  return sizeCost;
 }
 
 function getPizzaTopping() {
@@ -89,9 +79,8 @@ function getPizzaTopping() {
   let toppingCost = eval(whatTopping).tAmount;
   document.getElementById('display-topping').innerHTML = eval(whatTopping).topping;
   document.getElementById('pTopping_cost').innerHTML = "$" + toppingCost;
-  console.log(whatTopping);
   let theTopping = [whatTopping, toppingCost];
-  return theTopping;
+  return toppingCost;
 }
 
 function getPizzaCrust() {
@@ -99,24 +88,23 @@ function getPizzaCrust() {
   let crustCost = eval(whichCrust).cAmount;
   document.getElementById('display-crust').innerHTML = eval(whichCrust).crust;
   document.getElementById('pCrust_cost').innerHTML = "$" + crustCost;
-  console.log(whichCrust);
   let theCrust = [whichCrust, crustCost];
-  return whichCrust;
+  return crustCost;
 }
 
 function getDelivery() {
   var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
   let deliveryCost = 1;
-  document.getElementById('delivery-details').innerHTML = deliveryValue;
+  /*document.getElementById('delivery-details').innerHTML = deliveryValue;*/
   
-  console.log(deliveryValue);
-
   if (deliveryValue == 'delivery') {
     $('#delivery-form').show('slow');
     $('#delivery-dets').show('slow');
+    $('#sbmt-btn').hide();
   } else {
     $('#delivery-form').hide('slow');
     $('#delivery-dets').hide('slow');
+    $('#sbmt-btn').show();
     deliveryCost = 0;
   }
 
@@ -128,13 +116,9 @@ function getDelivery() {
     document.getElementById('delivery-form').style.display = "none";
   }
   */
-
-
   let theDelivery = [deliveryValue, deliveryCost];
-  return theDelivery;
+  return deliveryCost;
 }
-
-customersTotalCost();
 
 function getDeliveryName() {
   let nameToDeliver = document.getElementById('deli-name').value;
@@ -181,7 +165,7 @@ function incrementValue() {
   value++;
   document.getElementById('pizza-number').value = value;
   document.getElementById('display-number-of-pizzas').innerHTML = value;
-  return false;
+  return value;
 }
 
 function decrementValue() {
@@ -191,27 +175,35 @@ function decrementValue() {
     value--;
     document.getElementById('pizza-number').value = value;
     document.getElementById('display-number-of-pizzas').innerHTML = value;
-    return false;
+    return value;
   }
 }
 
+function dataValidator() {
+  let nameDeli = document.getElementById('deli-name').value;
+  let numberDeli = document.getElementById('deli-number').value;
+  let apartmentDeli = document.getElementById('deli-apartment').value;
+  let houseNumberDeli = document.getElementById('deli-house-number').value;
 
+  if (nameDeli.length == 0 && numberDeli.length == 0 && apartmentDeli.length == 0 && houseNumberDeli.length == 0) {
+    alert('Kindly fill in the delivery form');
+  }
+  else {
+    customerCost();
+    $('#summaryModal').modal('show');
+  }
+}
 
+function showSummary() {
+  $('#summaryModal').modal('show');
+  customerCost();
+  event.preventDefault();
+}
 
 
 /*---------------Business Logic---------------*/
 //Function to calculate the total amount for the order
-//Change to listening JQuery function
-function customersTotalCost() {
-  let pizzaType = getPizza();
-  let sizeP = getPizzaSize();
-  let toppingP = getPizzaTopping();
-  let crustP = getPizzaCrust();
-  let deliveryP = getDelivery();
-
-  let totalAmount = pizzaType[1] + sizeP[1] + toppingP[1] + crustP[1] + deliveryP[1];
-
-  
-
-  return totalAmount;
+function customerCost() {
+  var customerCost = (getPizza() + getPizzaSize() + getPizzaTopping() + getPizzaCrust() + getDelivery()) * value;
+  document.getElementById('total_cost').innerHTML = customerCost;
 }

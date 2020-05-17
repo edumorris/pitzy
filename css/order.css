@@ -58,6 +58,7 @@ select {
 .deli-labels {
 	text-align: right;
 	padding-right: 10px;
+	font-weight: bold;
 }
 
 .deli-details {
@@ -110,10 +111,26 @@ select {
 	padding-right: 50px;
 }
 
+.info_labels {
+	text-align: right;
+	padding-right: 5px;
+	font-weight: bold;
+}
+
 #total_cost {
 	font-size: 1.5em;
 	font-weight: bold;
 	text-align: left;
+}
+
+.static-delivery-det {
+	font-weight: bold;
+}
+
+.dynamic-delivery-det {
+	text-decoration: underline;
+	background-color: #f59800;
+	padding-left: 10px;
 }
 
 #delivery-type label {
@@ -133,4 +150,15 @@ input[type="radio"]:checked {
 	display: none;
 	height: auto;
 	position: relative;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
 }

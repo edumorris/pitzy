@@ -1,0 +1,142 @@
+<head>
+    <title>Pitzy Pizza</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="images/logo/favicon.ico" type="image/x-icon">
+
+    <!--Personal CSS-->
+    <link rel="stylesheet" type="text/css" href="css/home_styler.css">
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+
+    <!--Personal JS-->
+    <script src="js/functions.js"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/a097096ef6.js"></script>
+</head>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="order-summary">
+                <table>
+                    <tr>
+                        <th colspan="2">
+                            <h2>Your Order</h2>
+                        </th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Pizza:
+                        </th>
+                        <td class="orderSum-center">
+                            <span id="display-pizza"></span>
+                        </td>
+                        <td class="orderSum-right">
+                            <span id="pizza_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Size:
+                        </th>
+                        <td class="orderSum-center">
+                            <span id="display-pizza-size">
+                        </td>
+                        <td class="orderSum-right">
+                            <span id="pSize_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Topping:
+                        </th>
+                        <td class="orderSum-center">
+                            <span id="display-topping"></span>
+                        </td>
+                        <td class="orderSum-right">
+                            <span id="pTopping_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Crust:
+                        </th>
+                        <td class="orderSum-center">
+                            <span id="display-crust"></span>
+                        </td>
+                        <td class="orderSum-right">
+                            <span id="pCrust_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Pizzas?
+                        </th>
+                        <td class="orderSum-center" colspan="2">
+                            <span id="display-number-of-pizzas" style="text-align: center;"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="orderSum-left">
+                            Pickup or Delivery?
+                        </th>
+                        <td class="orderSum-center">
+                            <span id="delivery-details"></span>
+                        </td>
+                        <td class="orderSum-right">
+                            <span id="delivery_cost"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" id="cost-total">
+                            TOTAL:
+                        </th>
+                        <td>
+                            <span id="total_cost"></span>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <div id="delivery-dets">
+                    <h3 style="text-align: center;">Delivery Details</h3>
+                    <div><span class="static-delivery-det">Deliver To:</span><span id="delivery-name"></span></div>
+                    <div><span class="static-delivery-det">Phone Number:</span><span id="delivery-phoneNumber"></span>
+                    </div>
+                    <div><span class="static-delivery-det">Alternate Phone Number:</span><span id="delivery-altPhoneNumber"></span></div>
+                    <div><span class="static-delivery-det">Email:</span><span id="delivery-email"></span></div>
+                    <div><span class="static-delivery-det">Apartment Name:</span><span id="delivery-apartment"></span>
+                    </div>
+                    <div><span class="static-delivery-det">House Number:</span><span id="delivery-houseNumber"></span>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
