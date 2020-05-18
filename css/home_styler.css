@@ -2,6 +2,9 @@
 
 html, body {
     font-family: 'Oswald', sans-serif;
+    background: #f12711 !important;
+    background: -webkit-linear-gradient(to right, #f12711, #f5af19) !important;
+    background: linear-gradient(to right, #f12711, #f5af19) !important;
 }
 
 img {
