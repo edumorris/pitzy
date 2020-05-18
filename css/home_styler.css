@@ -67,3 +67,7 @@ header {
     width: 70px;
     margin: 0 auto;
 }
+
+.card-body a {
+    text-align: center;
+}
