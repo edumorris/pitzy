@@ -16,7 +16,18 @@ img {
 }
 
 #order-btn {
-    margin-right: 50px;
+    margin-right: 100px;
+    background: #f12711 !important;
+    background: -webkit-linear-gradient(to right, #f12711, #f5af19) !important;
+    background: linear-gradient(to right, #f12711, #f5af19) !important;
+    -webkit-box-shadow: 0px 15px 18px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 15px 18px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 15px 18px -14px rgba(0, 0, 0, 0.75);
+}
+
+.btn-info {
+    width: 200px !important;
+    height: 50px;
 }
 
 header {
@@ -30,33 +41,26 @@ header {
     z-index: 66;
 }
 
-#hero-advert {
+#promo-cards {
     width: 100%;
-    height: 90vh;
-    display: grid;
-    grid-template-areas: 
-        "piz-one piz-one piz-three piz-three"
-        "piz-one piz-one piz-two piz-two"
-        "piz-one piz-one piz-two piz-two"
-        "piz-four piz-four piz-two piz-two";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-#image1 {
-    grid-area: piz-one;
-    background: url("../images/pizza7.png") no-repeat;
-    background-size: 100% 100%;
+.card {
+    width: 20%;
+    height: 200px;
+    margin: 50px;
+    border: 1px solid black;
 }
 
-#image2 {
-    grid-area: piz-two;
-    background: url("../images/pizza6.jpg") no-repeat;
-    background-size: 100% 100%;
+.card-title {
+    text-align: center;
 }
 
-#image3 {
-    grid-area: piz-three;
-}
-
-#image4 {
-    grid-area: piz-four;
+.card-btn {
+    width: 70px;
+    margin: 0 auto;
 }

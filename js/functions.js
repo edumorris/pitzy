@@ -54,6 +54,10 @@ var doubleDough = new pizzaCrust("Double Dough", 2);
 
 
 /*---------------User Logic---------------*/
+function openOrder() {
+  window.location.href = "order.html";
+}
+
 function getPizza() {
   let whichPizza = document.getElementById('pizza').value;
   console.log(whichPizza);
@@ -96,7 +100,7 @@ function getDelivery() {
   var deliveryValue = document.querySelector('input[name="delivery-type"]:checked').value;
   let deliveryCost = 1;
   /*document.getElementById('delivery-details').innerHTML = deliveryValue;*/
-  
+
   if (deliveryValue == 'delivery') {
     $('#delivery-form').show('slow');
     $('#delivery-dets').show('slow');
@@ -198,6 +202,12 @@ function showSummary() {
   $('#summaryModal').modal('show');
   customerCost();
   event.preventDefault();
+}
+
+function orderReceived() {
+  $('#summaryModal').modal('hide');
+  location.reload();
+  alert("Your order has been received and is being processed. You shall receive communication soon. You can make a new order. Thank you for dining with Pitzy");
 }
 
 

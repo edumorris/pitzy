@@ -29,17 +29,14 @@
 <body>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-blue text-center">
-            <a class="navbar-brand" href="#"><img class="logo" src="images/logo/pitzy-logo.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+            <a class="navbar-brand" href="index.html"><img class="logo" src="images/logo/pitzy-logo.png"></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <button id="order-btn" class="btn btn-success my-2 my-sm-0" onclick="openOrder()">Order</button>
-                </form>
+
+                <a href="order.html">
+                    <button id="order-btn" class="btn btn-info btn-lg" onclick="openOrder()">Order</button>
+                </a>
+
             </div>
         </nav>
     </header>
@@ -61,14 +58,14 @@
                             <td>
                                 <select class="pizza-data" id="pizza" required onchange="getPizza()">
                                     <option value="" disabled default selected="true">Select Pizza</option>
-                                    <option value="meatzza">Meatzza</option>
-                                    <option value="hawaiian">Hawaiian</option>
-                                    <option value="regina">Regina</option>
-                                    <option value="bbqSteak">BBQ Steak</option>
-                                    <option value="bbqChicken">BBQ Chicken</option>
-                                    <option value="vegTikka">Veg Tikka</option>
-                                    <option value="boerewors">Boerewors</option>
-                                    <option value="periChicken">Peri-Peri Chicken</option>
+                                    <option value="meatzza">Meatzza ($12)</option>
+                                    <option value="hawaiian">Hawaiian ($11)</option>
+                                    <option value="regina">Regina ($12)</option>
+                                    <option value="bbqSteak">BBQ Steak ($15)</option>
+                                    <option value="bbqChicken">BBQ Chicken ($17)</option>
+                                    <option value="vegTikka">Veg Tikka ($10)</option>
+                                    <option value="boerewors">Boerewors ($11)</option>
+                                    <option value="periChicken">Peri-Peri Chicken ($18)</option>
                                 </select>
                             </td>
                         </tr>
@@ -79,9 +76,9 @@
                             <td>
                                 <select class="pizza-data" id="pizza-size" required onchange="getPizzaSize()">
                                     <option value="" disabled default selected="true">Size of Pizza</option>
-                                    <option value="small">Small</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="large">Large</option>
+                                    <option value="small">Small (+$)</option>
+                                    <option value="medium">Medium(+$3)</option>
+                                    <option value="large">Large (+$5.50)</option>
                                 </select>
                             </td>
                         </tr>
@@ -92,14 +89,14 @@
                             <td>
                                 <select class="pizza-data" id="pizza-topping" required onchange="getPizzaTopping()">
                                     <option value="" disabled default selected="true">Select Topping</option>
-                                    <option value="pepperoni">Pepperoni</option>
-                                    <option value="mushroom">Mushrooms</option>
-                                    <option value="sausages">Sausages</option>
-                                    <option value="onions">Onions</option>
-                                    <option value="bacon">Bacon</option>
-                                    <option value="extraCheese">Extra Cheese</option>
-                                    <option value="pepper">Pepper</option>
-                                    <option value="blackOlives">Black Olives</option>
+                                    <option value="pepperoni">Pepperoni (+$1.50)</option>
+                                    <option value="mushroom">Mushrooms (+$1)</option>
+                                    <option value="sausages">Sausages(+$2)</option>
+                                    <option value="onions">Onions (+$0.50)</option>
+                                    <option value="bacon">Bacon (+$2.50)</option>
+                                    <option value="extraCheese">Extra Cheese (+$1.50)</option>
+                                    <option value="pepper">Pepper (+$0.50)</option>
+                                    <option value="blackOlives">Black Olives (+$3)</option>
                                 </select>
                             </td>
                         </tr>
@@ -110,21 +107,24 @@
                             <td>
                                 <select class="pizza-data" id="pizza-crust" required onchange="getPizzaCrust()">
                                     <option value="" disabled default selected="true">Select Crust</option>
-                                    <option value="crispy">Crispy</option>
-                                    <option value="stuffed">Stuffed</option>
-                                    <option value="gluttenFree">Glutten Free</option>
-                                    <option value="flatBread">Flat Bread</option>
-                                    <option value="veganFriendly">Vegan Friendly</option>
-                                    <option value="doubleDough">Double Dough</option>
+                                    <option value="crispy">Crispy(+$0)</option>
+                                    <option value="stuffed">Stuffed (+$1)</option>
+                                    <option value="gluttenFree">Glutten Free (-$2)</option>
+                                    <option value="flatBread">Flat Bread (+$0)</option>
+                                    <option value="veganFriendly">Vegan Friendly (+$0)</option>
+                                    <option value="doubleDough">Double Dough (+$2)</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td class="info_labels">Number of Pizzas:</td>
                             <td style="text-align: center;">
-                                <button type="button" id="decre" onclick="decrementValue()"><i class="fas fa-minus"></i></button>
-                                <input class="pizza-data" type="number" name="pizzaNumber" id="pizza-number" value="" style="width: 50px; text-align: center;" />
-                                <button type="button" id="incre" onclick="incrementValue()"><i class="fas fa-plus"></i></button>
+                                <button type="button" id="decre" onclick="decrementValue()"><i
+                                        class="fas fa-minus"></i></button>
+                                <input class="pizza-data" type="number" name="pizzaNumber" id="pizza-number" value=""
+                                    style="width: 50px; text-align: center;" />
+                                <button type="button" id="incre" onclick="incrementValue()"><i
+                                        class="fas fa-plus"></i></button>
                             </td>
                         </tr>
                         <tr>
@@ -142,7 +142,8 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; margin-top: 20px;">
-                                <input type="submit" class="btn-success" name="Submit" value="Submit" id="sbmt-btn" onclick="showSummary()">
+                                <input type="submit" class="btn btn-primary" name="Submit" value="Submit" id="sbmt-btn"
+                                    onclick="showSummary()">
                             </td>
                             <td></td>
                         </tr>
@@ -160,21 +161,22 @@
                         <tr>
                             <th class="deli-labels"><label for="deli-name">Name:</label></th>
                             <td>
-                                <input type="text" class="deli-details" name="deli-name" id="deli-name" placeholder="Delivering to..."
-                                    required onchange="getDeliveryName()">
+                                <input type="text" class="deli-details" name="deli-name" id="deli-name"
+                                    placeholder="Delivering to..." required onchange="getDeliveryName()">
                             </td>
                         </tr>
                         <tr>
                             <th class="deli-labels"><label for="deli-number">Phone Number:</label></th>
                             <td>
-                                <input type="number" class="deli-details" name="deli-number" id="deli-number" placeholder="Phone Number"
-                                    required onchange="getPhoneNumber()">
+                                <input type="number" class="deli-details" name="deli-number" id="deli-number"
+                                    placeholder="Phone Number" required onchange="getPhoneNumber()">
                             </td>
                         </tr>
                         <tr>
                             <th class="deli-labels"><label for="deli-alt">Alt-Phone Number:</label></th>
                             <td>
-                                <input type="number" class="deli-details" name="deli-alt" id="deli-alt" placeholder="Alternate Phone Number" onchange="getAltNumber()">
+                                <input type="number" class="deli-details" name="deli-alt" id="deli-alt"
+                                    placeholder="Alternate Phone Number" onchange="getAltNumber()">
                             </td>
                         </tr>
                         <tr>
@@ -204,7 +206,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center;">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button id="sbmt-ordr-btn" type="button" class="btn btn-primary" data-toggle="modal"
                                     onclick="dataValidator()">
                                     Submit Order
                                 </button>
@@ -309,31 +311,28 @@
                             <hr>
                             <div id="delivery-dets">
                                 <h3 style="text-align: center;">Delivery Details</h3>
-                                <div><span class="static-delivery-det">Deliver To:</span><span class="dynamic-delivery-det"
-                                        id="delivery-name"></span></div>
+                                <div><span class="static-delivery-det">Deliver To:</span><span
+                                        class="dynamic-delivery-det" id="delivery-name"></span></div>
                                 <div><span class="static-delivery-det">Phone Number:</span><span
-                                         class="dynamic-delivery-det" id="delivery-phoneNumber"></span>
+                                        class="dynamic-delivery-det" id="delivery-phoneNumber"></span>
                                 </div>
                                 <div><span class="static-delivery-det">Alternate Phone Number:</span><span
-                                        class="dynamic-delivery-det"
-                                        id="delivery-altPhoneNumber"></span></div>
+                                        class="dynamic-delivery-det" id="delivery-altPhoneNumber"></span></div>
                                 <div><span class="static-delivery-det">Email:</span><span class="dynamic-delivery-det"
                                         id="delivery-email"></span>
                                 </div>
                                 <div><span class="static-delivery-det">Apartment Name:</span><span
-                                        class="dynamic-delivery-det"
-                                        id="delivery-apartment"></span>
+                                        class="dynamic-delivery-det" id="delivery-apartment"></span>
                                 </div>
                                 <div><span class="static-delivery-det">House Number:</span><span
-                                        class="dynamic-delivery-det"
-                                        id="delivery-houseNumber"></span>
+                                        class="dynamic-delivery-det" id="delivery-houseNumber"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="orderReceived()">Submit</button>
                     </div>
                 </div>
             </div>
